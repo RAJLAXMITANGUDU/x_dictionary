@@ -15,10 +15,7 @@ const initialDictionary=
   const[searchTerm,setSearchTerm]=useState("");
   const [result,setResult]=useState(null);
   const handleSearch=()=>{
-    if(!searchTerm.trim()){
-      setResult("Please enter a search term.");
-      return;
-    }
+    
     const foundWord=dictionary.find(
       (entry)=>entry.word.toLowerCase()===searchTerm.toLowerCase()
     );
