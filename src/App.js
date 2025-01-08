@@ -15,6 +15,10 @@ const initialDictionary=
   const[searchTerm,setSearchTerm]=useState("");
   const [result,setResult]=useState(null);
   const handleSearch=()=>{
+    if(!searchTerm.trim()){
+      setResult("Please enter a search term.");
+      return;
+    }
     const foundWord=dictionary.find(
       (entry)=>entry.word.toLowerCase()===searchTerm.toLowerCase()
     );
@@ -41,12 +45,12 @@ const initialDictionary=
         >
           Search
         </button>
-        <h2>Definition:</h2>
       </div>
+      <h2>Definition:</h2>
       {result && (
         <div 
           style={{
-            marginTop:"20px",
+            marginTop:"10px",
             padding:"10px",
             border:"1px solid #ccc",
             maxWidth:"400px",
